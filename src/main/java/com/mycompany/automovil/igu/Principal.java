@@ -123,7 +123,9 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
-        // TODO add your handling code here:
+        ConsultaAutomovil consul = new ConsultaAutomovil();
+        consul.setVisible(true);
+        consul.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConsultaActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

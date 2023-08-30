@@ -2,6 +2,7 @@
 package com.mycompany.automovil.logica;
 
 import com.mycompany.automovil.persistence.ControladoraPersistencia;
+import java.util.List;
 
 public class Controladora {
     //Comunicamos la controladora logica con la de persistencia
@@ -24,6 +25,10 @@ public class Controladora {
         
         controlPersis.agregarAutomovil(auto);
         
+    }
+
+    public List<Automovil> traerAutos() {
+        return controlPersis.traerAutos();
     }
     
     
