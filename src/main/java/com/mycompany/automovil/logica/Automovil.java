@@ -1,26 +1,37 @@
 
 package com.mycompany.automovil.logica;
 
-public class Automovil {
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Automovil implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
+    @Basic
     private String modelo;
     private String marca;
     private String motor;
+    private String color;
     private String patente;
-    private String placa;
     private int cantPuertas;
 
     public Automovil() {
     }
 
-    public Automovil(int id, String modelo, String marca, String motor, String patente, String placa, int cantPuertas) {
+    public Automovil(int id, String modelo, String marca, String motor,String color, String patente, int cantPuertas) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.motor = motor;
+        this.color = color;
         this.patente = patente;
-        this.placa = placa;
         this.cantPuertas = cantPuertas;
     }
 
@@ -64,13 +75,15 @@ public class Automovil {
         this.patente = patente;
     }
 
-    public String getPlaca() {
-        return placa;
+    public String getColor() {
+        return color;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setColor(String color) {
+        this.color = color;
     }
+
+    
 
     public int getCantPuertas() {
         return cantPuertas;

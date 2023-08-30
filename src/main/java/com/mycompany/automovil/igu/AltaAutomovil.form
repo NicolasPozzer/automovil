@@ -130,11 +130,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                                      <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtCantPuertas" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCantPuertas" min="-2" pref="54" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -179,7 +179,7 @@
                       <EmptySpace pref="54" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnLimpiar" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="btnGuardar" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="btnAgregar" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -238,6 +238,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCantPuertas">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCantPuertasActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -255,12 +258,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnGuardar">
+            <Component class="javax.swing.JButton" name="btnAgregar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar"/>
+                <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

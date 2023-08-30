@@ -127,11 +127,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultaActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAltaAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaAutoActionPerformed
-        // TODO add your handling code here:
+        AltaAutomovil altaAuto = new AltaAutomovil();
+        altaAuto.setVisible(true);
+        altaAuto.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAltaAutoActionPerformed
 
 

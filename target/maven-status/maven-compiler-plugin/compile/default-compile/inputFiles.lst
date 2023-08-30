@@ -1,3 +1,10 @@
 C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\igu\Principal.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\logica\Controladora.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\persistence\exceptions\IllegalOrphanException.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\igu\AltaAutomovil.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\persistence\AutomovilJpaController.java
 C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\Automovil.java
 C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\logica\Automovil.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\persistence\exceptions\NonexistentEntityException.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\persistence\ControladoraPersistencia.java
+C:\Users\nico-\Desktop\YoProgramo\Aprendiendo JAVA\MisProyectosJAVA\automovil\src\main\java\com\mycompany\automovil\persistence\exceptions\PreexistingEntityException.java
