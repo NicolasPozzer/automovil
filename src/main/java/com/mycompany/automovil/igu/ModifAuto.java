@@ -1,15 +1,24 @@
 
 package com.mycompany.automovil.igu;
 
+import com.mycompany.automovil.logica.Automovil;
 import com.mycompany.automovil.logica.Controladora;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 
-public class AltaAutomovil extends javax.swing.JFrame {
+public class ModifAuto extends javax.swing.JFrame {
     
-    Controladora control = new Controladora();
+    Controladora control = null;
+    Automovil auto = new Automovil();
 
-    public AltaAutomovil() {
+    //Hay que pasar por parametro la id para poder modificar un auto.
+    public ModifAuto(int idAuto) {
+        control = new Controladora();
         initComponents();
+        
+        //metodo con los datos del auto
+        cargarDatosAuto(idAuto);
     }
 
 
@@ -34,18 +43,24 @@ public class AltaAutomovil extends javax.swing.JFrame {
         txtCantPuertas = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("ALTA DE AUTOMOVIL");
+        jLabel1.setText("MODIFICACION DE AUTOMOVIL");
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\nico-\\Desktop\\YoProgramo\\Aprendiendo JAVA\\MisProyectosJAVA\\automovil\\src\\img\\logoprincipall.png")); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Modelo:");
+
+        txtMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Marca:");
@@ -75,10 +90,10 @@ public class AltaAutomovil extends javax.swing.JFrame {
             }
         });
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
@@ -116,7 +131,7 @@ public class AltaAutomovil extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(165, 165, 165)
-                                .addComponent(btnAgregar))
+                                .addComponent(btnModificar))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCantPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -152,7 +167,7 @@ public class AltaAutomovil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -168,35 +183,36 @@ public class AltaAutomovil extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(212, 212, 212))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton1)
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1)))
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(55, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(84, 84, 84))))
         );
@@ -225,38 +241,70 @@ public class AltaAutomovil extends javax.swing.JFrame {
         txtCantPuertas.setText(limpiar);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         
-        //con esto obtiene todos los datos de las cajas de texto completados
+        //Traer todos los datos del auto modificado y guardar en variables auxiliar
         String modelo = txtModelo.getText();
         String marca = txtMarca.getText();
-        String motor = txtMotor.getText();
         String color = txtColor.getText();
+        String motor = txtMotor.getText();
         String patente = txtPatente.getText();
         int cantPuertas = Integer.parseInt(txtCantPuertas.getText());
         
-        //crear metodo para agregar los atributos de arriba
-        control.agregarAutomovil(modelo, marca, motor, color, patente, cantPuertas);
-    }//GEN-LAST:event_btnAgregarActionPerformed
+        //Paso el auto y sus calores nuevos
+        control.modificarAuto(auto, modelo,marca,color,motor,patente,cantPuertas);
+        
+        mostrarMensaje("Edicion realizada con Exito","Info","Edicion Realizada");
+        
+        ConsultaAutomovil consul = new ConsultaAutomovil();
+        consul.setVisible(true);
+        consul.setLocationRelativeTo(null);
+        
+        //cerramos esta pestania
+        this.dispose();
+        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
+    //Metodo mostrar mensaje
+    public void mostrarMensaje(String mensaje, String tipo, String titulo){//datos que recibe el metodo por parametro
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("Info")){
+                optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);//Seleccionamos el logo que querramos ej. INFORMATION_MESSAGE
+                }
+        else if(tipo.equals("Error")){
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                }
+        else{
+            optionPane.setMessageType(JOptionPane.CLOSED_OPTION);
+        }
+                JDialog dialog = optionPane.createDialog(titulo);
+                dialog.setVisible(true);
+    }
+    
+    
     private void txtCantPuertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantPuertasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantPuertasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Principal princi = new Principal();
-        princi.setVisible(true);
-        princi.setLocationRelativeTo(null);
+        
+        ConsultaAutomovil consul = new ConsultaAutomovil();
+        consul.setVisible(true);
+        consul.setLocationRelativeTo(null);
         
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaActionPerformed
 
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -275,4 +323,20 @@ public class AltaAutomovil extends javax.swing.JFrame {
     private javax.swing.JTextField txtMotor;
     private javax.swing.JTextField txtPatente;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatosAuto(int idAuto) {
+        //hacer todo el pasaje de la id hasta la base de datos pasando__
+        //por la logica y la persistencia y despues q vuelva
+        auto = control.traerAuto(idAuto);
+        
+        //seteo los valores en las cajas de texto para que se rellenen y se__ 
+        //puedan modificar
+        txtModelo.setText(auto.getModelo());
+        txtMarca.setText(auto.getMarca());
+        txtColor.setText(auto.getColor());
+        txtMotor.setText(auto.getMotor());
+        txtPatente.setText(auto.getPatente());
+        //convertir el string en texto string con String.valueOF
+        txtCantPuertas.setText(String.valueOf(auto.getCantPuertas()));
+    }
 }

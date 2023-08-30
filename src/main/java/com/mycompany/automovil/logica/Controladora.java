@@ -31,5 +31,32 @@ public class Controladora {
         return controlPersis.traerAutos();
     }
     
+    //trae todos los atos para mostrar en la lista
+    public void borrarAuto(int idAuto) {
+        controlPersis.borrarAuto(idAuto);
+    }
+
+    //trae un auto para modificar
+    public Automovil traerAuto(int idAuto) {
+        return controlPersis.traerAuto(idAuto);
+    }
+
+    public void modificarAuto(Automovil auto, String modelo, String marca,
+            String motor, String color, String patente, int cantPuertas) {
+        
+        //seteamos los datos nuevos a el auto actual
+        
+        auto.setModelo(modelo);
+        auto.setMarca(marca);
+        auto.setColor(color);
+        auto.setMotor(motor);
+        auto.setPatente(patente);
+        auto.setCantPuertas(cantPuertas);
+        
+        //le pasamos a la persistencia el auto completo con los datos modificados
+        controlPersis.modificarAuto(auto);
+        
+    }
+    
     
 }
